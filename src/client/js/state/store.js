@@ -30,7 +30,8 @@ class CopilotStore {
       ambiguityFilterOnly: false,
       highlightedEvidence: null, // { lineIndex, quote, itemId }
       apiKey: localStorage.getItem(STORAGE_KEYS.API_KEY) || '',
-      searchQuery: ''
+      searchQuery: '',
+      currentView: 'board' // 'board' (Kanban) | 'split' (Audit Studio) | 'briefing' (Digest)
     };
 
     this.listeners = new Set();
@@ -124,6 +125,29 @@ class CopilotStore {
       console.error('[Store] Extraction processing error:', err);
     } finally {
       this.state.isExtracting = false;
+      this.notify();
+    }
+  }
+
+  /**
+   * Sets the active workspace layout view.
+   * @param {'board' | 'split' | 'briefing'} view 
+   */
+  setView(view) {
+    this.state.currentView = view;
+    this.notify();
+  }
+
+  /**
+   * Quick-assigns an owner to an action item, clearing the unassigned ambiguity.
+   */
+  assignOwner(itemId, ownerName) {
+    const item = this.state.actionItems.find((i) => i.id === itemId);
+    if (item && ownerName) {
+      item.assignee = ownerName;
+      item.ambiguityFlags = item.ambiguityFlags.filter((f) => f.type !== 'unassigned_owner');
+      item.needsHumanReview = item.ambiguityFlags.length > 0;
+      item.isEdited = true;
       this.notify();
     }
   }

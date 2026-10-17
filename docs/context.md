@@ -33,9 +33,9 @@ Teams lack an automated, reliable method to convert spoken meeting transcripts i
 
 | Persona | Role | Primary Needs | Critical Success Factor |
 | :--- | :--- | :--- | :--- |
-| **Primary: Alex Chen** | Senior Product Manager | Coordinating cross-functional alignment across Engineering, Design, QA, and Marketing. Needs bulletproof decision logs and clear owners. | Zero invented commitments; rapid 2-minute review before exporting to Jira/Notion. |
-| **Secondary: Marcus Vance** | Technical Project Manager / Scrum Master | Translating sprint planning, architectural reviews, and retrospectives into sprint backlogs and action items. | Explicit citation links back to speaker quotes for technical clarity. |
-| **Secondary: Sarah Lin** | Early-stage Startup Founder | Running fast-paced standups and executive syncs where speed is vital and nothing can slip through the cracks. | Instant ambiguity detection for unassigned mission-critical tasks. |
+| **Primary: Aarav Sharma** | Senior Product Manager | Coordinating cross-functional alignment across Engineering, Design, QA, and Marketing. Needs bulletproof decision logs and clear owners. | Zero invented commitments; rapid 2-minute review before exporting to Jira/Notion. |
+| **Secondary: Rohan Mehta** | Technical Project Manager / Scrum Master | Translating sprint planning, architectural reviews, and retrospectives into sprint backlogs and action items. | Explicit citation links back to speaker quotes for technical clarity. |
+| **Secondary: Ananya Patel** | Early-stage Startup Founder & Product Lead | Running fast-paced standups and executive syncs where speed is vital and nothing can slip through the cracks. | Instant ambiguity detection for unassigned mission-critical tasks. |
 
 ---
 
@@ -123,7 +123,7 @@ Conventional AI tools prioritize completeness over accuracy, routinely inventing
 
 ## 10. PM Readiness Checklist
 
-- [x] **1. Target User & Problem Statement Defined:** Alex Chen (Senior PM) & Marcus Vance (TPM) facing scattered outcomes and hallucinated AI commitments.
+- [x] **1. Target User & Problem Statement Defined:** Aarav Sharma (Senior PM) & Rohan Mehta (TPM) facing scattered outcomes and hallucinated AI commitments.
 - [x] **2. Problem Validation:** Verified against common PM post-meeting pain points across distributed teams.
 - [x] **3. Product Hypothesis & Core Guardrails:** Evidence-first extraction + ambiguity flagging = reliable execution.
 - [x] **4. MVP Scope & Explicit Non-Goals:** Text ingestion, structured extraction, ambiguity engine, split-view review, multi-format export.
