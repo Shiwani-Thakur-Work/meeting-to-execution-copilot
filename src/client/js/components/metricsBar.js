@@ -1,14 +1,9 @@
 /**
  * metricsBar.js
  * 
- * Top Real-Time Metrics Strip.
- * Calculates and visualizes executive indicators:
- * - Total Action Items extracted
- * - Pending Review count
- * - Active Ambiguity & Uncertainty Alerts
- * - Confirmed Decisions
- * - Open Blockers & Clarification Needs
- * - Estimated PM Time Saved
+ * Executive Status & Audit Readiness Ribbon.
+ * Replaces generic chunky metric boxes with a clean, high-precision progress gauge
+ * and interactive status indicators.
  */
 
 import { store } from '../state/store.js';
@@ -16,52 +11,67 @@ import { store } from '../state/store.js';
 export function renderMetricsBar(container) {
   function update() {
     const metrics = store.getMetrics();
+    const totalItems = metrics.totalActions + metrics.confirmedDecisions;
+    const verifiedItems = metrics.approvedActions + metrics.confirmedDecisions;
+    const progressPercent = totalItems > 0 ? Math.round((verifiedItems / totalItems) * 100) : 100;
 
     container.innerHTML = `
       <div class="metrics-strip">
-        <div class="metrics-group">
-          <!-- Total Actions -->
-          <div class="metric-pill" title="Total structured action items extracted">
-            <span class="metric-label">Actions:</span>
-            <span class="metric-value">${metrics.totalActions}</span>
-          </div>
-
-          <!-- Needs Review / Pending -->
-          <div class="metric-pill ${metrics.pendingReviewActions > 0 ? 'metric-pill-warning' : 'metric-pill-success'}" title="Action items awaiting PM verification">
-            <span class="metric-label">Needs Review:</span>
-            <span class="metric-value">${metrics.pendingReviewActions}</span>
-          </div>
-
-          <!-- Ambiguity Alerts -->
-          <div class="metric-pill ${metrics.totalAmbiguities > 0 ? 'metric-pill-warning' : ''}" id="metric-ambiguity-trigger" style="cursor: pointer;" title="Detected unassigned owners, vague dates, or hedged proposals">
-            <span class="metric-label">⚠️ Ambiguity Flags:</span>
-            <span class="metric-value" style="color: #fbbf24;">${metrics.totalAmbiguities}</span>
+        <!-- Audit Progress Gauge -->
+        <div class="metrics-strip-left">
+          <div class="audit-progress-container" title="Audit readiness based on approved items and resolved ambiguities">
+            <div class="audit-progress-track">
+              <div class="audit-progress-fill" style="width: ${progressPercent}%;"></div>
+            </div>
+            <span class="audit-progress-label">${progressPercent}% Audited</span>
+            ${metrics.pendingReviewActions > 0 ? `
+              <span style="font-size: 11px; color: var(--text-tertiary);">
+                (${metrics.pendingReviewActions} pending verification)
+              </span>
+            ` : `
+              <span style="font-size: 11px; color: #34d399; font-weight: 500;">
+                ✓ Ready for export
+              </span>
+            `}
           </div>
         </div>
 
+        <!-- Executive Metrics Indicators -->
         <div class="metrics-group">
+          <!-- Action Items -->
+          <div class="metric-pill" title="Total structured action items">
+            <span>Actions:</span>
+            <span class="metric-value">${metrics.totalActions}</span>
+          </div>
+
           <!-- Confirmed Decisions -->
-          <div class="metric-pill metric-pill-success" title="Decisions confirmed with team consensus">
-            <span class="metric-label">✅ Decisions:</span>
-            <span class="metric-value">${metrics.confirmedDecisions}</span>
+          <div class="metric-pill" title="Confirmed decisions ratified by team">
+            <span>🎯 Decisions:</span>
+            <span class="metric-value" style="color: #34d399;">${metrics.confirmedDecisions}</span>
           </div>
 
-          <!-- Open Questions / Blockers -->
-          <div class="metric-pill" title="Unresolved questions or operational blockers">
-            <span class="metric-label">❓ Open Questions:</span>
-            <span class="metric-value" style="color: #fda4af;">${metrics.openBlockers}</span>
+          <!-- Open Questions -->
+          <div class="metric-pill" title="Unresolved questions or blockers">
+            <span>❓ Questions:</span>
+            <span class="metric-value" style="color: #fb7185;">${metrics.openBlockers}</span>
           </div>
 
-          <!-- Estimated Time Saved -->
-          <div class="metric-pill" title="Calculated based on average manual meeting note scrubbing">
-            <span class="metric-label">⚡ Est. Saved:</span>
-            <span class="metric-value" style="color: #38bdf8;">~${metrics.minutesSaved} min</span>
+          <!-- Ambiguity Flags -->
+          <div class="metric-pill ${metrics.totalAmbiguities > 0 ? 'metric-pill-warning' : ''}" id="metric-ambiguity-trigger" style="cursor: pointer;" title="Click to filter items with missing owners or vague dates">
+            <span>⚠️ Flags:</span>
+            <span class="metric-value" style="color: #fbbf24;">${metrics.totalAmbiguities}</span>
+          </div>
+
+          <!-- Time Saved -->
+          <div class="metric-pill" title="Estimated PM time saved vs manual review">
+            <span>⚡ Saved:</span>
+            <span class="metric-value" style="color: #60a5fa;">~${metrics.minutesSaved}m</span>
           </div>
         </div>
       </div>
     `;
 
-    // Clicking the ambiguity metric quick-toggles ambiguity filter
+    // Clicking ambiguity badge quick-toggles the ambiguity filter
     const ambTrigger = container.querySelector('#metric-ambiguity-trigger');
     if (ambTrigger) {
       ambTrigger.addEventListener('click', () => {
@@ -70,7 +80,7 @@ export function renderMetricsBar(container) {
     }
   }
 
-  // Initial render & subscribe to store updates
+  // Initial render & subscription
   update();
   store.subscribe(() => update());
 }
