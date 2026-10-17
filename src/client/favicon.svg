@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" fill="none">
+  <defs>
+    <linearGradient id="copilotGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6366f1" />
+      <stop offset="50%" stop-color="#8b5cf6" />
+      <stop offset="100%" stop-color="#06b6d4" />
+    </linearGradient>
+    <linearGradient id="accentGlow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#10b981" />
+      <stop offset="100%" stop-color="#34d399" />
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#6366f1" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <!-- Background Shield / Squircle -->
+  <rect x="4" y="4" width="56" height="56" rx="16" fill="#0f172a" stroke="url(#copilotGrad)" stroke-width="2.5" />
+
+  <!-- Waveform / Voice Audio Pillars -->
+  <rect x="14" y="27" width="3.5" height="10" rx="1.75" fill="#94a3b8" />
+  <rect x="20" y="21" width="3.5" height="22" rx="1.75" fill="url(#copilotGrad)" />
+  <rect x="26" y="16" width="3.5" height="32" rx="1.75" fill="#c084fc" />
+
+  <!-- Arrow / Transition Spark -->
+  <path d="M33 32 L36 32" stroke="#64748b" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- Checklist Box with Checkmark -->
+  <rect x="38" y="19" width="16" height="16" rx="4" fill="#1e293b" stroke="#38bdf8" stroke-width="1.8" />
+  <path d="M41.5 27 L45 30.5 L51 23.5" stroke="url(#accentGlow)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+
+  <!-- Second Action Item Line -->
+  <rect x="38" y="39" width="16" height="3" rx="1.5" fill="#475569" />
+  <rect x="38" y="45" width="10" height="3" rx="1.5" fill="#334155" />
+</svg>

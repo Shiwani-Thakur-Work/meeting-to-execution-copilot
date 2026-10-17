@@ -1,0 +1,103 @@
+# Meeting-to-Execution Copilot
+
+## 1. Product context
+
+Teams make decisions in meetings, but the resulting action items and unresolved questions can be scattered across notes, chat messages, and project-management tools.
+
+A meeting summary may look complete while failing to capture who owns a task, whether a decision was actually made, or what still needs clarification.
+
+The Meeting-to-Execution Copilot focuses on making meeting outcomes actionable and auditable.
+
+## 2. Problem statement
+
+Teams need a reliable way to convert meeting transcripts into explicit actions, owners, deadlines, decisions, and open questions. Generic summaries often fail to preserve accountability and ambiguity.
+
+## 3. Target users
+
+**Primary user:** Product managers coordinating work across design, engineering, and business teams.
+
+**Secondary users:** Project managers, team leads, and startup founders.
+
+## 4. Core hypothesis
+
+If meeting outcomes are converted into structured action items with evidence from the transcript and clear uncertainty flags, teams will be able to follow through more reliably.
+
+## 5. Proposed MVP
+
+- Paste or upload a meeting transcript.
+- Extract action items and decisions.
+- Identify explicitly assigned owners and deadlines.
+- Separate confirmed decisions from proposals and unresolved questions.
+- Link each extracted item to its source passage.
+- Flag missing owners, unclear commitments, and ambiguous dates.
+- Allow users to edit and approve the output.
+- Export approved actions as a checklist or CSV.
+
+Start with transcript text. Recording meetings, real-time transcription, and multiple integrations can come later.
+
+## 6. Product differentiation
+
+The product should not invent ownership or turn suggestions into commitments.
+
+For example, if a participant says, "We should investigate this next week," the system should not automatically assign a named owner or convert the statement into a confirmed deadline.
+
+Every important extracted item should be reviewable against the original transcript.
+
+## 7. PM decisions to demonstrate
+
+- What qualifies as an action item rather than a general discussion point?
+- How should the system represent uncertainty?
+- When should it ask the user for clarification?
+- What evidence is required before an action can be exported?
+- How much manual review is acceptable?
+- Which integrations are justified by actual user demand?
+
+## 8. Success metrics
+
+- Precision and recall of action-item extraction on a reviewed test set.
+- Accuracy of owner and deadline extraction.
+- Percentage of extracted actions accepted without correction.
+- Rate of unsupported decisions or invented assignments.
+- Time required to review and distribute meeting outcomes.
+- Percentage of ambiguous items correctly flagged.
+
+## 9. Initial validation
+
+Use several sample transcripts with different meeting styles. Manually annotate the true decisions, action items, owners, deadlines, and unresolved questions.
+
+Compare the system's output with the annotations and record both missed items and false positives.
+
+## 10. Out of scope
+
+- Autonomous assignment of work.
+- Automatically sending commitments to colleagues.
+- Full meeting recording infrastructure.
+- Deep Jira, Slack, and Notion integrations in the first release.
+- Employee performance scoring.
+
+## 11. Portfolio outcome
+
+Show the difference between a conventional meeting summary and an execution-ready output, with special attention to ambiguity handling, source traceability, and the trade-offs between automation and human approval.
+
+
+- PM perspective: This project is especially useful for demonstrating workflow design and reliability. Its central question is whether it reduces follow-up work without creating incorrect commitments.
+
+
+
+- Your PM working checklist
+Use this checklist for each project before implementation begins.
+Project readiness
+0/10
+
+
+
+[ ] Define the target user and problem statement
+[ ] Conduct initial user research or problem validation
+[ ] Write the product hypothesis and assumptions
+[ ] Define MVP scope and explicit non-goals
+[ ] Select success metrics and how to measure them
+[ ] Create user flows and a low-fidelity prototype
+[ ] Define AI evaluation cases and failure handling
+[ ] Build and test the smallest useful version
+[ ] Review results and prioritize the next iteration
+[ ] Publish an honest PM case study

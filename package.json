@@ -1,0 +1,25 @@
+{
+  "name": "meeting-to-execution-copilot",
+  "version": "1.0.0",
+  "description": "Meeting-to-Execution Copilot — Turn messy meeting transcripts into auditable, high-conviction action items with zero invented commitments",
+  "type": "module",
+  "scripts": {
+    "dev": "vite src/client --port 3000 --open",
+    "build": "vite build src/client",
+    "preview": "vite preview src/client"
+  },
+  "keywords": [
+    "product-management",
+    "meeting-copilot",
+    "action-items",
+    "transcript-analysis",
+    "ambiguity-detection",
+    "ai",
+    "gemini"
+  ],
+  "author": "Shiwani Thakur",
+  "license": "MIT",
+  "devDependencies": {
+    "vite": "^6.2.0"
+  }
+}

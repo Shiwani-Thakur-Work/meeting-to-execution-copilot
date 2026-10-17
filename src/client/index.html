@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- Primary Meta Tags -->
+  <title>Meeting-to-Execution Copilot — Auditable Action Item & Decision Intelligence</title>
+  <meta name="title" content="Meeting-to-Execution Copilot — Auditable Action Item & Decision Intelligence" />
+  <meta name="description" content="Turn messy meeting transcripts into auditable, high-conviction action items and decisions with verifiable transcript citations and zero invented commitments." />
+  <meta name="keywords" content="meeting intelligence, action items, executive copilot, product management, ambiguity detection, decision log, gemini, auditable ai" />
+  <meta name="author" content="Shiwani Thakur" />
+  <meta name="theme-color" content="#080c14" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Meeting-to-Execution Copilot — Auditable Action Item Intelligence" />
+  <meta property="og:description" content="Transform meeting dialogue into explicit, auditable tasks and decisions with transparent uncertainty flags and direct source citations." />
+  <meta property="og:image" content="./assets/logo.svg" />
+
+  <!-- Twitter / X -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:title" content="Meeting-to-Execution Copilot" />
+  <meta property="twitter:description" content="Auditable meeting intelligence with transparent ambiguity flags and zero invented commitments." />
+  <meta property="twitter:image" content="./assets/logo.svg" />
+
+  <!-- Favicon & Icons -->
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+  <link rel="apple-touch-icon" href="./favicon.svg" />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="./css/main.css" />
+  <link rel="stylesheet" href="./css/components.css" />
+</head>
+<body>
+  <!-- Main Application Shell -->
+  <div id="app">
+    <!-- Top Navigation Header -->
+    <div id="navbar-container"></div>
+
+    <!-- Real-time Metrics & Ambiguity Strip -->
+    <div id="metrics-container"></div>
+
+    <!-- Split-View Audit Workspace -->
+    <main class="workspace-container" id="workspace-container">
+      <!-- Left Pane: Interactive Transcript Viewer -->
+      <section class="pane pane-transcript" id="transcript-pane-container" aria-label="Meeting Transcript Viewer"></section>
+
+      <!-- Right Pane: Execution Workbench & Card Review -->
+      <section class="pane pane-workbench" id="workbench-pane-container" aria-label="Execution Workbench"></section>
+    </main>
+
+    <!-- Modals, Drawers & Toast Notifications -->
+    <div id="modals-container"></div>
+  </div>
+
+  <!-- Application Bootstrap -->
+  <script type="module" src="./js/app.js"></script>
+</body>
+</html>
